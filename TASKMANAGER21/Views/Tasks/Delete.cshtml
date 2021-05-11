@@ -1,0 +1,87 @@
+﻿@model TASKMANAGER21.Models.Tasks1
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tasks1</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskdesc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskdesc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskstatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskstatus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskpriority)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskpriority)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskowner)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskowner)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskassigned)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskassigned)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskstart)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskstart)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskendtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskendtime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tskproject)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tskproject)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rowtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rowtime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rowid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rowid)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Tskid" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

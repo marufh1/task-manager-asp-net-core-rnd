@@ -1,0 +1,130 @@
+﻿@model TASKMANAGER21.Models.Tasks1
+
+@{
+    ViewData["Title"] = "Edit";
+    var resinfs = (IEnumerable<TASKMANAGER21.Models.Resinf>)ViewData["resInf"];
+    var projects = (IEnumerable<TASKMANAGER21.Models.Projectd>)ViewData["projects"];
+}
+
+<h1>Edit</h1>
+
+<h4>Tasks1</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tskid" />
+            <div class="form-group">
+                <label asp-for="Tskname" class="control-label"></label>
+                <input asp-for="Tskname" class="form-control" />
+                <span asp-validation-for="Tskname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskdesc" class="control-label"></label>
+                <input asp-for="Tskdesc" class="form-control" />
+                <span asp-validation-for="Tskdesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskstatus" class="control-label"></label>
+                <select asp-for="Tskstatus" class="form-control">
+                    <option value="pending">Pending</option>
+                    <option value="ongoing">Ongoing</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <span asp-validation-for="Tskstatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskpriority" class="control-label"></label>
+                <select asp-for="Tskpriority" class="form-control">
+                    <option value="highest">Highest Priority</option>
+                    <option value="high">High Priority</option>
+                    <option value="normal">Normal Priority</option>
+                    <option value="low">Low Priority</option>
+                </select>
+                <span asp-validation-for="Tskpriority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskowner" class="control-label"></label>
+                <select asp-for="Tskowner" class="form-control">
+
+                    @foreach (var item in resinfs)
+                    {
+                        if (item.Rescode == Model.Tskowner)
+                        {
+                            <option selected value="@item.Rescode">@item.Resname</option>
+                            continue;
+                        }
+                        <option value="@item.Rescode">@item.Resname</option>
+                    }
+                </select>
+                <span asp-validation-for="Tskowner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskassigned" class="control-label"></label>
+                <select asp-for="Tskassigned" class="form-control">
+
+                    @foreach (var item in resinfs)
+                    {
+                        if (item.Rescode == Model.Tskassigned)
+                        {
+                            <option selected value="@item.Rescode">@item.Resname</option>
+                            continue;
+                        }
+                        <option value="@item.Rescode">@item.Resname</option>
+                    }
+                </select>
+                <span asp-validation-for="Tskassigned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskstart" class="control-label"></label>
+                <input asp-for="Tskstart" class="form-control" />
+                <span asp-validation-for="Tskstart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskendtime" class="control-label"></label>
+                <input asp-for="Tskendtime" class="form-control" />
+                <span asp-validation-for="Tskendtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tskproject" class="control-label"></label>
+                <select asp-for="Tskproject" class="form-control">
+                    <option selected disabled>Select</option>
+                    @foreach (var item in projects)
+                    {
+                        if (item.Prid == Model.Tskproject)
+                        {
+                            <option selected value="@item.Prid">@item.Prdesc</option>
+                            continue;
+                        }
+                        <option value="@item.Prid">@item.Prdesc</option>
+                    }
+                </select>
+                <span asp-validation-for="Tskproject" class="text-danger"></span>
+            </div>
+            <div class="form-group d-none">
+                <label asp-for="Rowtime" class="control-label"></label>
+                <input asp-for="Rowtime" type="hidden" class="form-control" />
+                <span asp-validation-for="Rowtime" class="text-danger"></span>
+            </div>
+            <div class="form-group d-none">
+                <input asp-for="Rowid" type="hidden" class="form-control" />
+                <span asp-validation-for="Rowid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(".tasks1").addClass("pcoded-trigger")
+    </script>
+}

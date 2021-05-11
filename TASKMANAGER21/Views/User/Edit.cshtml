@@ -1,0 +1,63 @@
+﻿@model TASKMANAGER21.Models.Resinf
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Resinf</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Rescode" />
+            <div class="form-group">
+                <label asp-for="Resname" class="control-label"></label>
+                <input asp-for="Resname" class="form-control" />
+                <span asp-validation-for="Resname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restype" class="control-label"></label>
+                <input asp-for="Restype" class="form-control" />
+                <span asp-validation-for="Restype" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resemail" class="control-label"></label>
+                <input asp-for="Resemail" class="form-control" />
+                <span asp-validation-for="Resemail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resphone" class="control-label"></label>
+                <input asp-for="Resphone" class="form-control" />
+                <span asp-validation-for="Resphone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resstatus" class="control-label"></label>
+                <input asp-for="Resstatus" class="form-control" />
+                <span asp-validation-for="Resstatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resdesig" class="control-label"></label>
+                <input asp-for="Resdesig" class="form-control" />
+                <span asp-validation-for="Resdesig" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    $(".users1").addClass("active pcoded-trigger")
+</script>
+}
+

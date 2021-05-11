@@ -1,0 +1,150 @@
+﻿@model IEnumerable<TASKMANAGER21.Models.Tasks1>
+
+@{
+    ViewData["Title"] = "Completed Task";
+    int a = 1;
+    string status = "";
+}
+
+
+<div class="page-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header py-0 pt-2">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>
+                                <a asp-action="Create" class="btn btn-primary">Create New</a>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="text-center ">Completed Task List</h4>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-block task-list">
+                    <div class="table-responsive">
+                        <table class="table" id="dt-tasks1">
+                            <thead>
+                                <tr>
+                                    <th> SL</th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskname)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskassigned)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskstatus)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskstart)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskendtime)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskpriority)
+                                    </th>
+
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskproject)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskowner)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tskdesc)
+                                    </th>
+
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @a
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tskname)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tskassigned)
+                                        </td>
+                                        <td>
+                                            @if (item.Tskstatus == "pending")
+                                            {
+                                                status = "label-danger";
+                                            }
+                                            else if (item.Tskstatus == "completed")
+                                            {
+                                                status = "label-success";
+                                            }
+                                            else
+                                            {
+                                                status = "label-warning";
+                                            }
+                                            <span class="pcoded-badge label @status">
+                                                @Html.DisplayFor(modelItem => item.Tskstatus)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @{
+                                                var startTime = item.Tskstart.ToString("dd MMM yyyy");
+                                            }
+                                            @Html.DisplayFor(modelItem => startTime)
+                                        </td>
+                                        <td>
+                                            @{
+                                                var endTime = item.Tskendtime.ToString("dd MMM yyyy");
+                                            }
+                                            @Html.DisplayFor(modelItem => endTime)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tskpriority)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tskproject)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tskowner)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tskdesc)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Tskid">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Tskid">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Tskid">Delete</a>
+                                        </td>
+                                    </tr>
+                                    a++;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <script>
+        $(".tasks1").addClass("active pcoded-trigger")
+
+        $('#dt-tasks1').DataTable();
+    </script>
+
+} 

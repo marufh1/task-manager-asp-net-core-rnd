@@ -1,0 +1,62 @@
+﻿@model TASKMANAGER21.Models.Resinf
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Resinf</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Resname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Restype)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Restype)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Resemail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resemail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Resphone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resphone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Resstatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resstatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Resdesig)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resdesig)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Rescode">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+
+    <script>
+        $(".users1").addClass("active pcoded-trigger")
+    </script>
+
+} 
