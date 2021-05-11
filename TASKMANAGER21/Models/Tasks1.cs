@@ -21,9 +21,9 @@ namespace TASKMANAGER21.Models
         [Display(Name = "Priority")]
         [Required]
         public string Tskpriority { get; set; }
-        [Display(Name = "Added By")]
+        [Display(Name = "Assigned By")]
         public string Tskowner { get; set; }
-        [Display(Name = "Assigned User")]
+        [Display(Name = "Assigned To")]
         [Required]
         public string Tskassigned { get; set; }
 

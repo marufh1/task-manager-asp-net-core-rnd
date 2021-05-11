@@ -83,17 +83,17 @@
                                         <td>
                                             @if (item.Tskstatus == "pending")
                                             {
-                                                status = "label-danger";
+                                                status = "pcoded-badge label label-warning";
                                             }
                                             else if (item.Tskstatus == "completed")
                                             {
-                                                status = "label-success";
+                                                status = "text-dark";
                                             }
                                             else
                                             {
-                                                status = "label-warning";
+                                                status = "pcoded-badge label label-warning";
                                             }
-                                            <span class="pcoded-badge label @status">
+                                            <span class="@status">
                                                 @Html.DisplayFor(modelItem => item.Tskstatus)
                                             </span>
                                         </td>

@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="~/lib/assets/pages/data-table/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="~/lib/assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
     <!-- Style.css -->
+
+    <link href="~/css/jquery-ui.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/lib/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/lib/assets/css/jquery.mCustomScrollbar.css">
 </head>
@@ -78,7 +80,7 @@
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="feather icon-menu"></i>
                         </a>
-                        <a asp-controller="home" asp-action="index">
+                        <a asp-controller="" asp-action="">
                             <h6 style="font-size: 1.2rem;">Task Manager</h6>
                             @*<img class="img-fluid" src="~/lib/assets/images/logo.png" alt="Theme-Logo" />*@
                         </a>
@@ -419,7 +421,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a asp-controller="user" asp-action="">
+                                            <a asp-controller="user" asp-action="index">
                                                 <span class="pcoded-mtext">All Users</span>
                                             </a>
                                         </li>
@@ -491,6 +493,9 @@
     <script src="~/lib/assets/js/pcoded.min.js"></script>
     <script src="~/lib/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="~/lib/assets/js/vartical-layout.min.js"></script>
+
+    <script src="~/js/jquery-ui-1.12.1.js"></script>
+    <script src="~/js/notify.min.js"></script>
 
     <!-- data-table js -->
     <script src="~/lib/assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>

@@ -53,10 +53,16 @@ namespace TASKMANAGER21.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Rescode,Resname,Restype,Resemail,Resphone,Resstatus,Resdesig")] Resinf resinf)
+        public async Task<IActionResult> Create(Resinf resinf)
         {
             if (ModelState.IsValid)
             {
+                string usrType = resinf.Restype.ToLower() == "admin" ? "30" : "60";
+                var lastId2 = _context.Resinfs.Where(x => x.Rescode.Substring(6, 2) == usrType).Max(p => p.Rescode).Substring(8, 4);
+                var lastId = _context.Resinfs.Max(p => p.Rescode).ToString().Substring(8, 4);
+                string id = (Convert.ToInt32(lastId2) + 1).ToString("0000");
+                resinf.Rescode = DateTime.Now.ToString("yyMMdd") + usrType + id;
+                
                 _context.Add(resinf);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -85,7 +91,7 @@ namespace TASKMANAGER21.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Rescode,Resname,Restype,Resemail,Resphone,Resstatus,Resdesig")] Resinf resinf)
+        public async Task<IActionResult> Edit(string id, Resinf resinf)
         {
             if (id != resinf.Rescode)
             {

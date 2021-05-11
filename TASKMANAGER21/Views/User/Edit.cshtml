@@ -20,13 +20,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="Restype" class="control-label"></label>
-                <input asp-for="Restype" class="form-control" />
+                <input asp-for="Restype" class="form-control" readonly style="text-transform: uppercase" />
                 <span asp-validation-for="Restype" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Resemail" class="control-label"></label>
-                <input asp-for="Resemail" class="form-control" />
-                <span asp-validation-for="Resemail" class="text-danger"></span>
+                <label asp-for="Resdesig" class="control-label"></label>
+                <input asp-for="Resdesig" class="form-control" />
+                <span asp-validation-for="Resdesig" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Resphone" class="control-label"></label>
@@ -34,14 +34,17 @@
                 <span asp-validation-for="Resphone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Resstatus" class="control-label"></label>
-                <input asp-for="Resstatus" class="form-control" />
-                <span asp-validation-for="Resstatus" class="text-danger"></span>
+                <label asp-for="Resemail" class="control-label"></label>
+                <input asp-for="Resemail" class="form-control" />
+                <span asp-validation-for="Resemail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Resdesig" class="control-label"></label>
-                <input asp-for="Resdesig" class="form-control" />
-                <span asp-validation-for="Resdesig" class="text-danger"></span>
+                <label asp-for="Resstatus" class="control-label"></label>
+                <select asp-for="Resstatus" class="form-control">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <span asp-validation-for="Resstatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
