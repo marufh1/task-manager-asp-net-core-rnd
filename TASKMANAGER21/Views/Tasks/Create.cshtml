@@ -64,7 +64,7 @@
                                         <option selected disabled>Select</option>
                                         @foreach (var item in projects)
                                         {
-                                        <option value="@item.Prid">@item.Prdesc</option>
+                                        <option value="@item.Prid">@item.Prname</option>
                                         }
                                     </select>
                                     <span asp-validation-for="Tskproject" class="text-danger"></span>

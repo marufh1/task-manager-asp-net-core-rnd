@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TASKMANAGER21.Models.Projectd>
+
+@{
+    ViewData["Title"] = "Projects";
+    int i = 1;
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>SL</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prdesc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prdesc)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Prid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Prid">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Prid">Delete</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+
+    <script>
+        $(".projects1").addClass("active pcoded-trigger")
+    </script>
+
+} 

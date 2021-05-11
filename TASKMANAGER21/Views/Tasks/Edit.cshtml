@@ -16,7 +16,7 @@
                             <h4 class=" ">Edit Task</h4>
                         </div>
                         <div class="col-md-4">
-                            
+
                         </div>
                         <div class="col-md-4">
 
@@ -41,7 +41,7 @@
                                                 <option selected value="@item.Rescode">@item.Resname</option>
                                                 continue;
                                             }
-                                             <option value="@item.Rescode">@item.Resname</option>
+                                            <option value="@item.Rescode">@item.Resname</option>
                                         }
                                     </select>
                                     <span asp-validation-for="Tskowner" class="text-danger"></span>
@@ -54,10 +54,10 @@
                                         {
                                             if (item.Rescode == Model.Tskassigned)
                                             {
-                                                            <option selected value="@item.Rescode">@item.Resname</option>
+                                                <option selected value="@item.Rescode">@item.Resname</option>
                                                 continue;
                                             }
-                                                            <option value="@item.Rescode">@item.Resname</option>
+                                            <option value="@item.Rescode">@item.Resname</option>
                                         }
                                     </select>
                                     <span asp-validation-for="Tskassigned" class="text-danger"></span>
@@ -71,10 +71,10 @@
                                         {
                                             if (item.Prid == Model.Tskproject)
                                             {
-                                                            <option selected value="@item.Prid">@item.Prdesc</option>
+                                                <option selected value="@item.Prid">@item.Prname</option>
                                                 continue;
                                             }
-                                                            <option value="@item.Prid">@item.Prdesc</option>
+                                            <option value="@item.Prid">@item.Prname</option>
                                         }
                                     </select>
                                     <span asp-validation-for="Tskproject" class="text-danger"></span>
