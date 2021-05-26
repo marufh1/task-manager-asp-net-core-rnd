@@ -72,7 +72,7 @@ namespace TASKMANAGER21
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Tasks}/{action=Pending}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
